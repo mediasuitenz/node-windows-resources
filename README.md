@@ -1,4 +1,4 @@
-# node-windows-resources
+# Node.js Windows Resources
 A reference repo for setting up and deploying node on windows
 
 - [Project structure](PROJECT_STRUCTURE.md)
