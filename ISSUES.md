@@ -160,3 +160,24 @@ asked to reauthenticate over and over again. Pretty annoying
 
 ### solution
 Use internet explorer. Waa waaaa.
+
+## > loopback app startup code
+
+### description
+App never starts due to require.main check
+
+Example:
+```js
+// start the server if `$ node server.js`
+if (require.main === module) {
+  app.start();
+}
+```
+
+### solution
+Drop the require.main check
+
+Example:
+```js
+app.start()
+```
