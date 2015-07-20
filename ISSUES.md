@@ -5,11 +5,19 @@
 ### description
 Windows provides an `Authorization` header to the node app.
 When loopback sees this it tries to look up the AccessToken
-model which doesn't exist.
+model which doesn't exist. If you see any errors relating to
+AccessToken.findById, it's probably this
 
 ### solution
 Unset the `Authorization` header before loopback.token
 middleware is used
+
+```js
+app.use(function (req, res, next) {
+  delete req.headers['authorization']
+  next()
+})
+```
 
 ## > windows path character limit
 
@@ -132,3 +140,23 @@ Something like the following will do it: (probably should be improved)
 <iisnode watchedFiles="*.js;server\server.js;node_modules*;server*;common*" />
 ```
 If the process doesn't seem to be restarting, just make a chance to iisnode.js and save.
+
+## > windows auth
+
+### description
+Windows auth lets you authenticate but then you are stuck. Doesn't seem to be possible to log out from the app. You need to log out from your machine.
+
+### solution
+You can enable windows digest auth
+
+How to:
+In the iis server manager click authentication, disable unauthorized. enable windows digest
+
+## > windows digest
+
+### description
+Windows digest only works reliably on internet explorer. Using chrome results in being
+asked to reauthenticate over and over again. Pretty annoying
+
+### solution
+Use internet explorer. Waa waaaa.
