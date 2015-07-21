@@ -181,3 +181,27 @@ Example:
 ```js
 app.start()
 ```
+
+## > npm version on windows
+
+### description
+Updating npm on windows isn't super easy.
+
+### solution
+There is a great and simple tool here:
+[https://github.com/felixrieseberg/npm-windows-upgrade](https://github.com/felixrieseberg/npm-windows-upgrade)
+
+## > node-gyp native module build issues
+
+### description
+MSBuild is required and fails if things aren't setup correctly
+
+### solution
+- Install the latest Visual Sudio (express if fine)
+- Update npm to a recent version
+- might need to set which version of build tools to use `npm config set msvs_version 2013`
+
+### resources
+- [https://github.com/TooTallNate/node-gyp/](https://github.com/TooTallNate/node-gyp/)
+- [http://stackoverflow.com/questions/16092169/why-does-msbuild-look-in-c-for-microsoft-cpp-default-props-instead-of-c-progr](http://stackoverflow.com/questions/16092169/why-does-msbuild-look-in-c-for-microsoft-cpp-default-props-instead-of-c-progr)
+- [http://stackoverflow.com/questions/14180012/npm-install-for-some-packages-sqlite3-socket-io-fail-with-error-msb8020-on-wi](http://stackoverflow.com/questions/14180012/npm-install-for-some-packages-sqlite3-socket-io-fail-with-error-msb8020-on-wi)
